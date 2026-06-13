@@ -16,7 +16,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://driveease-one.vercel.app"
+      "https://driveease-one.vercel.app",
       "https://driveease-git-main-moharanasudhanshus-projects.vercel.app",
       "https://driveease-fh66f2jq8-moharanasudhanshus-projects.vercel.app",
       
