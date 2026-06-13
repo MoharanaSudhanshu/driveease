@@ -14,7 +14,13 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: process.env.CLIENT_URL,
+    origin: [
+      "http://localhost:5173",
+      "https://driveease-one.vercel.app"
+      "https://driveease-git-main-moharanasudhanshus-projects.vercel.app",
+      "https://driveease-fh66f2jq8-moharanasudhanshus-projects.vercel.app",
+      
+    ],
     credentials: true,
   }),
 );
