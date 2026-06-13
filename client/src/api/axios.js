@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://driveease-api-7tgx.onrender.com",
+  baseURL: "https://driveease-api-7tgx.onrender.com/api",
 });
 
 API.interceptors.request.use((config) => {
