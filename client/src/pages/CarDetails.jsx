@@ -31,7 +31,12 @@ function CarDetails() {
     getCar();
   }, [id]);
   
-  if (!car) return <div className="text-center mt-20">Loading...</div>;
+ if (!car)
+   return (
+     <div className="min-h-screen flex justify-center items-center">
+       <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-cyan-500"></div>
+     </div>
+   ); 
 
   return (
     <div className="bg-slate-50 min-h-screen">
@@ -103,7 +108,17 @@ function CarDetails() {
 
               <span className="text-gray-500">/day</span>
             </div>
-
+            <div className="mt-4">
+              {car.available ? (
+                <span className="inline-flex items-center gap-2 bg-green-100 text-green-700 px-4 py-2 rounded-full font-medium">
+                  🟢 Available Now
+                </span>
+              ) : (
+                <span className="inline-flex items-center gap-2 bg-red-100 text-red-700 px-4 py-2 rounded-full font-medium">
+                  🔴 Currently Unavailable
+                </span>
+              )}
+            </div>
             <p className="mt-6 text-gray-600 leading-relaxed">
               {car.description}
             </p>
@@ -112,21 +127,43 @@ function CarDetails() {
 
         {/* SPECIFICATIONS */}
 
-        <div className="grid md:grid-cols-4 gap-6 mt-12">
-          <div className="bg-white p-5 rounded-2xl shadow">
-            ⚡ {car.horsePower}
+        {/* SPECIFICATIONS */}
+
+        <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-6 mt-12">
+          <div className="bg-white p-5 rounded-2xl shadow text-center">
+            <p className="text-3xl">⚡</p>
+            <p className="font-semibold mt-2">{car.horsePower}</p>
+            <p className="text-gray-500 text-sm">Horse Power</p>
           </div>
 
-          <div className="bg-white p-5 rounded-2xl shadow">
-            🛣 {car.topSpeed}
+          <div className="bg-white p-5 rounded-2xl shadow text-center">
+            <p className="text-3xl">🛣</p>
+            <p className="font-semibold mt-2">{car.topSpeed}</p>
+            <p className="text-gray-500 text-sm">Top Speed</p>
           </div>
 
-          <div className="bg-white p-5 rounded-2xl shadow">
-            ⛽ {car.fuelType}
+          <div className="bg-white p-5 rounded-2xl shadow text-center">
+            <p className="text-3xl">⛽</p>
+            <p className="font-semibold mt-2">{car.fuelType}</p>
+            <p className="text-gray-500 text-sm">Fuel Type</p>
           </div>
 
-          <div className="bg-white p-5 rounded-2xl shadow">
-            ⚙ {car.transmission}
+          <div className="bg-white p-5 rounded-2xl shadow text-center">
+            <p className="text-3xl">⚙</p>
+            <p className="font-semibold mt-2 capitalize">{car.transmission}</p>
+            <p className="text-gray-500 text-sm">Transmission</p>
+          </div>
+
+          <div className="bg-white p-5 rounded-2xl shadow text-center">
+            <p className="text-3xl">👥</p>
+            <p className="font-semibold mt-2">{car.seats || 5}</p>
+            <p className="text-gray-500 text-sm">Seats</p>
+          </div>
+
+          <div className="bg-white p-5 rounded-2xl shadow text-center">
+            <p className="text-3xl">🚗</p>
+            <p className="font-semibold mt-2">{car.category}</p>
+            <p className="text-gray-500 text-sm">Category</p>
           </div>
         </div>
 
