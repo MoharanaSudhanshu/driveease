@@ -28,7 +28,7 @@ exports.getCars = async (req, res) => {
       maxPrice,
       search,
       page = 1,
-      limit = 12,
+      limit = 1000,
     } = req.query;
 
     let filter = {};
